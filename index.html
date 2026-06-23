@@ -1,502 +1,605 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Santosh Kumar | PHP Laravel Developer</title>
-  <link rel="stylesheet" href="css/all.min.css">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="css/animate.css">
-  <link rel="stylesheet" href="css/style.css">
-  <style>
-    .badge-tech {
-      display: inline-block;
-      background: #e8f0fe;
-      color: #1a56db;
-      border-radius: 4px;
-      padding: 2px 8px;
-      font-size: 12px;
-      font-weight: 600;
-      margin: 2px 2px 2px 0;
-    }
-    .project-link-btn {
-      display: inline-block;
-      margin-top: 8px;
-      margin-right: 6px;
-      padding: 4px 12px;
-      border: 1px solid #1a56db;
-      color: #1a56db;
-      border-radius: 4px;
-      font-size: 13px;
-      text-decoration: none;
-    }
-    .project-link-btn:hover { background: #1a56db; color: #fff; text-decoration: none; }
-    .stat-highlight { font-size: 13px; color: #27ae60; font-weight: 600; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Santosh Kumar — PHP / Laravel Developer</title>
+<meta name="description" content="Santosh Kumar — PHP & Laravel developer. Shipped ICAR-IARI's official platform, Pusa Beej seed-booking portal and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+/* =========================================================
+   TOKENS
+========================================================= */
+:root{
+  --paper:#ffffff;
+  --soft:#f3f5f8;
+  --soft-2:#eceff3;
+  --ink:#10131a;
+  --ink-soft:#565f6e;
+  --ink-faint:#8a92a0;
+  --line:#e2e6ec;
+  --line-strong:#cdd3dc;
+  --blue:#3454d1;
+  --blue-deep:#1f3aa8;
+  --green:#1f8a5e;
+  --green-soft:#e6f5ee;
+  --amber:#c97a1f;
+  --amber-soft:#fbeede;
+  --radius:10px;
+  --mono:'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
+  --display:'Sora', sans-serif;
+  --body:'Inter', sans-serif;
+  --maxw:1120px;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:var(--body);
+  color:var(--ink);
+  background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+  font-size:16px;
+  line-height:1.65;
+}
+img{max-width:100%;display:block;}
+a{color:var(--blue);text-decoration:none;}
+a:focus-visible, button:focus-visible{outline:2px solid var(--blue);outline-offset:3px;}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+}
+
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+section{padding:96px 0;}
+@media (max-width:768px){ section{padding:64px 0;} }
+
+h1,h2,h3,h4{font-family:var(--display); margin:0; color:var(--ink); letter-spacing:-0.01em;}
+.eyebrow{
+  font-family:var(--mono); font-size:13px; color:var(--blue);
+  text-transform:none; letter-spacing:0; display:flex; align-items:center; gap:8px; margin-bottom:14px;
+}
+.eyebrow::before{content:'//'; color:var(--ink-faint);}
+
+.section-head{max-width:620px; margin-bottom:48px;}
+.section-head h2{font-size:clamp(28px,3.4vw,38px); font-weight:700;}
+.section-head p{color:var(--ink-soft); margin-top:12px; font-size:17px;}
+
+/* =========================================================
+   NAV
+========================================================= */
+.nav{
+  position:sticky; top:0; z-index:50;
+  background:rgba(255,255,255,0.88);
+  backdrop-filter:saturate(180%) blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav .wrap{display:flex; align-items:center; justify-content:space-between; padding-top:16px; padding-bottom:16px;}
+.nav .logo{font-family:var(--mono); font-weight:600; font-size:15px; color:var(--ink);}
+.nav .logo span{color:var(--green);}
+.nav ul{display:flex; gap:28px; list-style:none; margin:0; padding:0;}
+.nav a{font-family:var(--mono); font-size:13.5px; color:var(--ink-soft); position:relative; padding:4px 0;}
+.nav a:hover{color:var(--ink);}
+.nav a::after{content:''; position:absolute; left:0; bottom:-2px; width:0; height:2px; background:var(--blue); transition:.25s;}
+.nav a:hover::after{width:100%;}
+.nav .navtoggle{display:none;}
+@media (max-width:760px){
+  .nav ul{display:none;}
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+.hero{padding-top:72px; padding-bottom:72px;}
+.hero .wrap{display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:center;}
+@media (max-width:900px){ .hero .wrap{grid-template-columns:1fr;} }
+
+.hero-kicker{font-family:var(--mono); font-size:13px; color:var(--green); display:flex; align-items:center; gap:8px; margin-bottom:18px;}
+.dot{width:7px; height:7px; border-radius:50%; background:var(--green); box-shadow:0 0 0 0 rgba(31,138,94,.5); animation:pulse 2s infinite;}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(31,138,94,.45);}
+  70%{box-shadow:0 0 0 8px rgba(31,138,94,0);}
+  100%{box-shadow:0 0 0 0 rgba(31,138,94,0);}
+}
+
+.hero h1{font-size:clamp(36px,5vw,58px); font-weight:800; line-height:1.08;}
+.hero h1 .accent{color:var(--blue);}
+.hero .role{font-family:var(--mono); font-size:17px; color:var(--ink-soft); margin-top:16px;}
+.hero p.lede{margin-top:18px; font-size:17px; color:var(--ink-soft); max-width:520px;}
+
+.cta-row{margin-top:32px; display:flex; gap:14px; flex-wrap:wrap;}
+.btn{
+  font-family:var(--mono); font-size:14px; font-weight:500;
+  padding:13px 24px; border-radius:8px; display:inline-flex; align-items:center; gap:8px;
+  border:1px solid transparent; cursor:pointer; transition:.2s; line-height:1;
+}
+.btn-primary{background:var(--ink); color:#fff;}
+.btn-primary:hover{background:var(--blue-deep);}
+.btn-outline{background:transparent; color:var(--ink); border-color:var(--line-strong);}
+.btn-outline:hover{border-color:var(--ink); background:var(--soft);}
+
+/* terminal card */
+.term{
+  background:#10131a; border-radius:14px; overflow:hidden;
+  box-shadow:0 30px 60px -25px rgba(16,19,26,.45);
+  border:1px solid #20242f;
+}
+.term-bar{display:flex; align-items:center; gap:8px; padding:12px 16px; background:#181c25; border-bottom:1px solid #232734;}
+.term-dot{width:10px; height:10px; border-radius:50%;}
+.term-bar .term-title{margin-left:8px; font-family:var(--mono); font-size:12px; color:#7e8696;}
+.term-body{padding:22px 22px 26px; font-family:var(--mono); font-size:13.5px; color:#cfd5e0; line-height:1.85;}
+.term-body .p{color:#5fd99c;}
+.term-body .k{color:#7e9bff;}
+.term-body .c{color:#7e8696;}
+.term-body .out{color:#e9edf4;}
+
+/* =========================================================
+   ABOUT
+========================================================= */
+.about .wrap{display:grid; grid-template-columns:0.85fr 1.15fr; gap:64px; align-items:start;}
+@media (max-width:900px){ .about .wrap{grid-template-columns:1fr;} }
+
+.avatar-card{position:relative;}
+.avatar-card .ph{
+  border-radius:var(--radius); overflow:hidden; border:1px solid var(--line);
+  aspect-ratio:4/5; background:var(--soft);
+}
+.avatar-card .ph img{width:100%; height:100%; object-fit:cover;}
+.avatar-tag{
+  margin-top:16px; font-family:var(--mono); font-size:12.5px; color:var(--ink-faint);
+  display:flex; justify-content:space-between; border-top:1px dashed var(--line); padding-top:14px;
+}
+
+.about-bio p{color:var(--ink-soft); font-size:16.5px;}
+.about-bio strong{color:var(--ink); font-weight:600;}
+
+dl.facts{display:grid; grid-template-columns:1fr 1fr; gap:18px 24px; margin:30px 0 0; padding:0;}
+@media (max-width:520px){ dl.facts{grid-template-columns:1fr;} }
+dl.facts div{border-top:1px solid var(--line); padding-top:10px;}
+dl.facts dt{font-family:var(--mono); font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:4px;}
+dl.facts dd{margin:0; font-size:14.5px; color:var(--ink); font-weight:500;}
+dl.facts dd a{color:var(--blue); font-weight:600;}
+
+/* =========================================================
+   SKILLS
+========================================================= */
+.skills-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:32px 48px;}
+@media (max-width:760px){ .skills-grid{grid-template-columns:1fr;} }
+.skill-row{margin-bottom:20px;}
+.skill-row:last-child{margin-bottom:0;}
+.skill-row .label{display:flex; justify-content:space-between; font-size:14px; margin-bottom:8px;}
+.skill-row .label .name{font-weight:600;}
+.skill-row .label .pct{font-family:var(--mono); color:var(--ink-faint);}
+.bar{height:6px; border-radius:4px; background:var(--soft-2); overflow:hidden;}
+.bar > span{display:block; height:100%; border-radius:4px; background:var(--blue);}
+.skill-row.alt .bar > span{background:var(--green);}
+
+/* =========================================================
+   TIMELINE (Resume)
+========================================================= */
+.timeline{position:relative; padding-left:28px; border-left:2px solid var(--line);}
+.tl-item{position:relative; padding-bottom:40px;}
+.tl-item:last-child{padding-bottom:0;}
+.tl-item::before{
+  content:''; position:absolute; left:-34px; top:4px; width:11px; height:11px; border-radius:50%;
+  background:var(--paper); border:3px solid var(--blue);
+}
+.tl-item.alt::before{border-color:var(--green);}
+.tl-date{font-family:var(--mono); font-size:12.5px; color:var(--ink-faint); text-transform:uppercase; letter-spacing:.05em;}
+.tl-item h3{font-size:20px; font-weight:700; margin-top:6px;}
+.tl-item .org{font-family:var(--mono); font-size:13px; color:var(--blue); display:block; margin-top:3px;}
+.tl-item p{margin-top:12px; color:var(--ink-soft); font-size:15px;}
+.tl-item .stat{color:var(--green); font-weight:600;}
+
+.resume-cols{display:grid; grid-template-columns:1.3fr 1fr; gap:64px;}
+@media (max-width:900px){ .resume-cols{grid-template-columns:1fr; gap:48px;} }
+.resume-cols h4{font-family:var(--mono); font-size:13px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-faint); margin-bottom:28px;}
+
+/* =========================================================
+   PROJECTS
+========================================================= */
+.proj-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+@media (max-width:980px){ .proj-grid{grid-template-columns:repeat(2,1fr);} }
+@media (max-width:640px){ .proj-grid{grid-template-columns:1fr;} }
+
+.card{
+  border:1px solid var(--line); border-radius:var(--radius); padding:24px;
+  display:flex; flex-direction:column; background:var(--paper); transition:.2s;
+}
+.card:hover{border-color:var(--line-strong); box-shadow:0 16px 32px -22px rgba(16,19,26,.18); transform:translateY(-2px);}
+
+.status{
+  display:inline-flex; align-items:center; gap:6px; font-family:var(--mono); font-size:11px; font-weight:600;
+  padding:4px 10px; border-radius:20px; margin-bottom:14px; width:fit-content; text-transform:uppercase; letter-spacing:.03em;
+}
+.status.live{background:var(--green-soft); color:var(--green);}
+.status.code{background:var(--amber-soft); color:var(--amber);}
+.status .dotsm{width:6px; height:6px; border-radius:50%; background:currentColor;}
+
+.card h3{font-size:18px; font-weight:700; margin-bottom:6px;}
+.card h3 a{color:var(--ink);}
+.card h3 a:hover{color:var(--blue);}
+.card .tags{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px;}
+.tag{font-family:var(--mono); font-size:11px; padding:3px 9px; border-radius:5px; background:var(--soft); color:var(--ink-soft); border:1px solid var(--line);}
+.card p{font-size:14.5px; color:var(--ink-soft); flex-grow:1; margin-bottom:14px;}
+.card .metric{font-size:13px; color:var(--green); font-weight:600; margin-bottom:14px; font-family:var(--mono);}
+.card .go{
+  font-family:var(--mono); font-size:13px; font-weight:600; color:var(--blue);
+  display:inline-flex; align-items:center; gap:6px; margin-top:auto;
+}
+.card .go:hover{color:var(--blue-deep);}
+
+/* stats strip */
+.stats-strip{display:grid; grid-template-columns:repeat(4,1fr); margin-top:56px; border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+@media (max-width:700px){ .stats-strip{grid-template-columns:repeat(2,1fr);} }
+.stat-box{padding:28px 12px; text-align:center; border-right:1px solid var(--line);}
+.stat-box:last-child{border-right:none;}
+@media (max-width:700px){ .stat-box:nth-child(2n){border-right:none;} .stat-box{border-bottom:1px solid var(--line);} .stat-box:nth-last-child(-n+2){border-bottom:none;} }
+.stat-box .num{font-family:var(--display); font-size:34px; font-weight:800; color:var(--ink);}
+.stat-box .num span{color:var(--blue);}
+.stat-box .lbl{font-family:var(--mono); font-size:12px; color:var(--ink-faint); margin-top:4px; text-transform:uppercase; letter-spacing:.04em;}
+
+/* =========================================================
+   CONTACT
+========================================================= */
+.contact-panel{
+  background:var(--ink); border-radius:16px; padding:56px; color:#fff;
+  display:grid; grid-template-columns:1fr 1fr; gap:48px;
+}
+@media (max-width:800px){ .contact-panel{grid-template-columns:1fr; padding:36px 24px;} }
+.contact-panel h2{color:#fff; font-size:clamp(26px,3.2vw,34px);}
+.contact-panel p{color:#aab2c4; margin-top:14px; font-size:15.5px; max-width:420px;}
+.contact-panel .cta-row{margin-top:28px;}
+.contact-panel .btn-primary{background:var(--blue);}
+.contact-panel .btn-primary:hover{background:#4d6bff;}
+.contact-panel .btn-outline{border-color:#333a4d; color:#fff;}
+.contact-panel .btn-outline:hover{background:#1a1f2c; border-color:#4a5266;}
+
+.contact-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:18px;}
+.contact-list li{display:flex; align-items:flex-start; gap:14px; border-bottom:1px solid #232734; padding-bottom:16px; font-size:14.5px;}
+.contact-list li:last-child{border-bottom:none; padding-bottom:0;}
+.contact-list .ico{
+  font-family:var(--mono); font-size:11px; color:#7e9bff; background:#171b27; border:1px solid #2a3042;
+  width:34px; height:34px; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.contact-list a{color:#e9edf4; font-weight:500;}
+.contact-list a:hover{color:#7e9bff;}
+.contact-list .lbl{display:block; font-family:var(--mono); font-size:11px; color:#6f788c; margin-bottom:2px; text-transform:uppercase; letter-spacing:.04em;}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+footer{padding:40px 0; border-top:1px solid var(--line);}
+footer .wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;}
+footer p{font-family:var(--mono); font-size:13px; color:var(--ink-faint); margin:0;}
+footer .soc{display:flex; gap:18px;}
+footer .soc a{font-family:var(--mono); font-size:13px; color:var(--ink-soft);}
+footer .soc a:hover{color:var(--blue);}
+
+</style>
 </head>
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+<body>
 
-<div id="colorlib-page">
-<div class="container-wrap">
-
-<!-- ===== NAVBAR ===== -->
-<nav class="colorlib-nav" role="navigation">
-  <div class="top-menu">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-xs-2">
-          <div id="logo"><a href="index.html">Santosh Kumar</a></div>
-        </div>
-        <div class="col-xs-10 text-right menu-1">
-          <ul>
-            <li><a href="#home-section">Home</a></li>
-            <li><a href="#about-section">About</a></li>
-            <li><a href="#resume-section">Resume</a></li>
-            <li><a href="#project-section">Projects</a></li>
-            <li><a href="#contact-section">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
+<!-- NAV -->
+<nav class="nav">
+  <div class="wrap">
+    <div class="logo">santosh<span>@</span>dev<span>:</span>~$</div>
+    <ul>
+      <li><a href="#about">about</a></li>
+      <li><a href="#skills">skills</a></li>
+      <li><a href="#resume">resume</a></li>
+      <li><a href="#projects">projects</a></li>
+      <li><a href="#contact">contact</a></li>
+    </ul>
+    <a class="btn btn-outline" href="images/Santosh_kumar_resume_Updated.pdf" target="_blank" style="padding:9px 16px; font-size:12.5px;">↓ resume.pdf</a>
   </div>
 </nav>
 
-<!-- ===== HOME ===== -->
-<section id="home-section" class="hero">
-  <div class="home-slider owl-carousel">
-    <div class="slider-item">
-      <div class="overlay"></div>
-      <div class="container-fluid">
-        <div class="row d-md-flex no-gutters slider-text align-items-top justify-content-end" data-scrollax-parent="true">
-          <div class="one-third js-fullheight order-md-last img" style="background-image:url(images/Sk.jpg);">
-            <div class="overlay"></div>
-          </div>
-          <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-            <div class="text">
-              <span class="subheading">Hello!</span>
-              <h1 class="mb-4 mt-3">I'm <strong>Santosh Kumar</strong></h1>
-              <h2 class="mb-4">PHP &amp; Laravel Developer</h2>
-              <p><a href="#contact-section" class="btn btn-primary py-3 px-4">Hire Me</a>&nbsp;&nbsp;<a href="https://github.com/Santosh-apna123" class="btn btn-white py-3 px-4" target="_blank">My Works</a></p>
-            </div>
-          </div>
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="hero-kicker"><span class="dot"></span> available for backend roles &amp; freelance work</div>
+      <h1>Santosh Kumar<br>builds <span class="accent">Laravel</span> systems<br>that stay live.</h1>
+      <p class="role">// php · laravel 10 · mysql · rest apis</p>
+      <p class="lede">Backend developer who shipped the official platform for India's premier agricultural research institute (ICAR-IARI) — and kept it running for 5,000+ visitors a month.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#contact">Hire me →</a>
+        <a class="btn btn-outline" href="#projects">See live work</a>
+      </div>
+    </div>
+
+    <div class="term">
+      <div class="term-bar">
+        <span class="term-dot" style="background:#ff5f57;"></span>
+        <span class="term-dot" style="background:#febc2e;"></span>
+        <span class="term-dot" style="background:#28c840;"></span>
+        <span class="term-title">santosh@dev — zsh</span>
+      </div>
+      <div class="term-body">
+        <div><span class="p">$</span> whoami</div>
+        <div class="out">santosh_kumar — php / laravel developer</div>
+        <div style="margin-top:10px;"><span class="p">$</span> cat experience.log</div>
+        <div class="out">2+ yrs · New Delhi, India</div>
+        <div style="margin-top:10px;"><span class="p">$</span> ls live_projects/</div>
+        <div class="out">
+          <span class="k">iari.res.in</span>  <span class="c"># govtech</span><br>
+          <span class="k">pusabeej.iari.res.in</span>  <span class="c"># e-commerce</span><br>
+          <span class="k">omaacompany.com</span>  <span class="c"># booking platform</span>
+        </div>
+        <div style="margin-top:10px;"><span class="p">$</span> echo $UPTIME</div>
+        <div class="out">99%+ across all live deployments</div>
+        <div style="margin-top:6px;"><span class="p">$</span> <span style="opacity:.5;">_</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="avatar-card">
+      <div class="ph"><img src="images/Sk.jpg" alt="Santosh Kumar"></div>
+      <div class="avatar-tag">
+        <span>SANTOSH_KUMAR.jpg</span>
+        <span>New Delhi, IN</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="eyebrow">01_about</div>
+      <h2 style="font-size:clamp(26px,3.2vw,34px); margin-bottom:18px;">Two years of shipping production PHP — not tutorials.</h2>
+      <div class="about-bio">
+        <p>I'm a PHP/Laravel developer based in New Delhi with 2+ years of production experience. My standout project is <strong>iari.res.in</strong> — the official digital platform of ICAR-IARI, India's premier agricultural research institute — which I built and maintain as the sole developer for thousands of monthly users.</p>
+        <p>I work across the full stack: Laravel 10 MVC architecture, REST API design, MySQL optimisation, and payment gateway integrations (Cashfree, Razorpay). I'm equally comfortable extending WordPress/WooCommerce stores when that's the right tool for the job.</p>
+      </div>
+
+      <dl class="facts">
+        <div><dt>Role</dt><dd>PHP / Laravel Developer</dd></div>
+        <div><dt>Domain</dt><dd>GovTech, E-commerce</dd></div>
+        <div><dt>Education</dt><dd>BCA — BRABU, Muzaffarpur</dd></div>
+        <div><dt>Stack</dt><dd>PHP 8 · Laravel 10 · MySQL</dd></div>
+        <div><dt>Tools</dt><dd>Git · Postman · cPanel · Cashfree</dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:info.santoskr@gmail.com">info.santoskr@gmail.com</a></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section style="background:var(--soft);" id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">02_stack</div>
+      <h2>What I build with</h2>
+      <p>The tools I reach for most when taking a project from spec to a live, paying-user product.</p>
+    </div>
+
+    <div class="skills-grid">
+      <div>
+        <div class="skill-row">
+          <div class="label"><span class="name">PHP 8 (OOP, MVC)</span><span class="pct">85%</span></div>
+          <div class="bar"><span style="width:85%;"></span></div>
+        </div>
+        <div class="skill-row">
+          <div class="label"><span class="name">Laravel 10</span><span class="pct">82%</span></div>
+          <div class="bar"><span style="width:82%;"></span></div>
+        </div>
+        <div class="skill-row">
+          <div class="label"><span class="name">MySQL &amp; query optimisation</span><span class="pct">78%</span></div>
+          <div class="bar"><span style="width:78%;"></span></div>
+        </div>
+        <div class="skill-row">
+          <div class="label"><span class="name">REST API design</span><span class="pct">80%</span></div>
+          <div class="bar"><span style="width:80%;"></span></div>
+        </div>
+      </div>
+      <div>
+        <div class="skill-row alt">
+          <div class="label"><span class="name">Bootstrap 5 / HTML5 / CSS3</span><span class="pct">88%</span></div>
+          <div class="bar"><span style="width:88%;"></span></div>
+        </div>
+        <div class="skill-row alt">
+          <div class="label"><span class="name">JavaScript / jQuery / Ajax</span><span class="pct">72%</span></div>
+          <div class="bar"><span style="width:72%;"></span></div>
+        </div>
+        <div class="skill-row alt">
+          <div class="label"><span class="name">WordPress / WooCommerce</span><span class="pct">75%</span></div>
+          <div class="bar"><span style="width:75%;"></span></div>
+        </div>
+        <div class="skill-row alt">
+          <div class="label"><span class="name">Git / GitHub / cPanel</span><span class="pct">78%</span></div>
+          <div class="bar"><span style="width:78%;"></span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== ABOUT ===== -->
-<section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
-  <div class="container-fluid px-md-4">
-    <div class="row d-flex">
-      <div class="col-md-6 col-lg-5 d-flex">
-        <div class="img-about img d-flex align-items-stretch">
-          <div class="overlay"></div>
-          <div class="img d-flex align-self-stretch align-items-center" style="background-image:url(images/Sk.jpg);"></div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
-        <div class="row justify-content-start pb-3">
-          <div class="col-md-12 heading-section ftco-animate">
-            <h1 class="big">About</h1>
-            <h2 class="mb-4">About Me</h2>
-            <p>PHP/Laravel developer with 2+ years of production experience. Delivered <strong>iari.res.in</strong> — the official digital platform of India's premier agricultural research institute (ICAR-IARI) — serving thousands of daily users. Skilled in end-to-end development: Laravel 10 MVC, REST APIs, Cashfree/Razorpay payment gateways, and WordPress/WooCommerce.</p>
-            <ul class="about-info mt-4 px-md-0 px-2">
-              <li class="d-flex"><span>Profile:</span> <span>PHP Laravel Developer</span></li>
-              <li class="d-flex"><span>Domain:</span> <span>Web Development, E-commerce, GovTech</span></li>
-              <li class="d-flex"><span>Education:</span> <span>BCA – BRABU, Muzaffarpur (2023)</span></li>
-              <li class="d-flex"><span>Location:</span> <span>New Delhi, India</span></li>
-              <li class="d-flex"><span>Stack:</span> <span>PHP 8, Laravel 10, MySQL, Bootstrap 5, REST API</span></li>
-              <li class="d-flex"><span>Tools:</span> <span>Git, GitHub, Postman, cPanel, Cashfree, CKEditor</span></li>
-              <li class="d-flex"><span>Email:</span> <span><a href="mailto:info.santoskr@gmail.com">info.santoskr@gmail.com</a></span></li>
-            </ul>
+<!-- RESUME -->
+<section id="resume">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">03_resume</div>
+      <h2>Experience &amp; education</h2>
+      <p>A short, verifiable history — every role here shipped something that's still running.</p>
+    </div>
+
+    <div class="resume-cols">
+      <div>
+        <h4>Experience</h4>
+        <div class="timeline">
+          <div class="tl-item">
+            <span class="tl-date">Feb 2025 — Present</span>
+            <h3>Web Developer</h3>
+            <span class="org">Microchip Infotech Systems Pvt. Ltd · New Delhi</span>
+            <p>Architected and launched <a href="https://iari.res.in" target="_blank">iari.res.in</a> on Laravel 10 — a live government platform managing 10+ content modules for 5,000+ monthly visitors.</p>
+            <p><span class="stat">✓ Built 15+ REST API endpoints</span> powering the admin panel, cutting content-update time by ~60%. Shipped a bilingual (Hindi/English) Bootstrap 5 UI with SEO-friendly routing, owning the lifecycle end to end — requirements, DB design, dev, cPanel deployment.</p>
           </div>
-        </div>
-        <div class="counter-wrap ftco-animate d-flex mt-1">
-          <div class="text">
-            <p class="mb-4">
-              <span class="number" data-number="5">0</span>
-              <span>&nbsp;+ Live Projects Delivered</span>
-            </p>
-            <p><a href="images/Santosh_kumar_resume_Updated.pdf" class="btn btn-primary py-3 px-3" target="_blank">Download CV</a></p>
+          <div class="tl-item alt">
+            <span class="tl-date">Jan 2024 — Jan 2025</span>
+            <h3>Web Developer</h3>
+            <span class="org">Artek Enterprises Pvt. Ltd · New Delhi</span>
+            <p>Built 8+ client websites with PHP (OOP) and WordPress, delivered on schedule with zero critical post-launch bugs.</p>
+            <p><span class="stat">✓ Integrated Cashfree &amp; Razorpay</span> into two e-commerce platforms, and <span class="stat">✓ cut average query time ~35%</span> on high-traffic pages through MySQL optimisation.</p>
           </div>
         </div>
       </div>
+
+      <div>
+        <h4>Education</h4>
+        <div class="timeline">
+          <div class="tl-item">
+            <span class="tl-date">2019 — 2023</span>
+            <h3>BCA</h3>
+            <span class="org">BRABU, Muzaffarpur · 70.33%</span>
+            <p>Core CS fundamentals, web development, databases and software engineering.</p>
+          </div>
+          <div class="tl-item alt">
+            <span class="tl-date">2017 — 2019</span>
+            <h3>Intermediate (12th)</h3>
+            <span class="org">B.S.E.B, Patna · 74.2%</span>
+            <p>Science stream with Mathematics &amp; Computer Science.</p>
+          </div>
+          <div class="tl-item">
+            <span class="tl-date">2015 — 2017</span>
+            <h3>Matriculation (10th)</h3>
+            <span class="org">B.S.E.B, Patna · 81.4%</span>
+            <p>Top marks in Mathematics; strong academic foundation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:48px;">
+      <a class="btn btn-primary" href="images/Santosh_kumar_resume_Updated.pdf" target="_blank">Download full CV ↓</a>
     </div>
   </div>
 </section>
 
-<!-- ===== SKILLS ===== -->
-<section class="ftco-section ftco-no-pb goto-here" id="skills-section">
-  <div class="container-fluid px-md-4">
-    <div class="row d-flex">
-      <div class="col-md-6 animate-box">
-        <div class="progress-wrap ftco-animate">
-          <h3>Skills</h3>
-          <div class="progress-wrap ftco-animate">
-            <p><span class="name">PHP 8 (OOP, MVC)</span> <span class="number">85%</span></p>
-            <div class="progress"><div class="progress-bar color-1" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width:85%"></div></div>
-          </div>
-          <div class="progress-wrap ftco-animate">
-            <p><span class="name">Laravel 10</span> <span class="number">82%</span></p>
-            <div class="progress"><div class="progress-bar color-2" role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100" style="width:82%"></div></div>
-          </div>
-          <div class="progress-wrap ftco-animate">
-            <p><span class="name">MySQL &amp; SQL Optimisation</span> <span class="number">78%</span></p>
-            <div class="progress"><div class="progress-bar color-3" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" style="width:78%"></div></div>
-          </div>
-          <div class="progress-wrap ftco-animate">
-            <p><span class="name">REST API Design</span> <span class="number">80%</span></p>
-            <div class="progress"><div class="progress-bar color-4" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%"></div></div>
-          </div>
+<!-- PROJECTS -->
+<section style="background:var(--soft);" id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">04_projects</div>
+      <h2>Live in production</h2>
+      <p>Six projects, all real — five are live right now, serving actual users and transactions.</p>
+    </div>
+
+    <div class="proj-grid">
+
+      <div class="card">
+        <span class="status live"><span class="dotsm"></span>live · govtech</span>
+        <h3><a href="https://iari.res.in" target="_blank">ICAR-IARI Official Website</a></h3>
+        <div class="tags">
+          <span class="tag">Laravel 10</span><span class="tag">PHP 8</span><span class="tag">MySQL</span><span class="tag">Bootstrap 5</span>
         </div>
+        <p>National web platform for India's premier agricultural research institute. Built solo — News, Tenders, Jobs, Training &amp; Auction modules.</p>
+        <div class="metric">5,000+ monthly visitors · 500+ notices managed</div>
+        <a class="go" href="https://iari.res.in" target="_blank">Visit live site →</a>
       </div>
-      <div class="col-md-6 animate-box">
-        <div class="progress-wrap ftco-animate">
-          <h3>&nbsp;</h3>
-          <div class="progress-wrap ftco-animate">
-            <p><span class="name">Bootstrap 5 / HTML5 / CSS3</span> <span class="number">88%</span></p>
-            <div class="progress"><div class="progress-bar color-5" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" style="width:88%"></div></div>
-          </div>
-          <div class="progress-wrap ftco-animate">
-            <p><span class="name">JavaScript / jQuery / Ajax</span> <span class="number">72%</span></p>
-            <div class="progress"><div class="progress-bar color-1" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="width:72%"></div></div>
-          </div>
-          <div class="progress-wrap ftco-animate">
-            <p><span class="name">WordPress / WooCommerce</span> <span class="number">75%</span></p>
-            <div class="progress"><div class="progress-bar color-2" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:75%"></div></div>
-          </div>
-          <div class="progress-wrap ftco-animate">
-            <p><span class="name">Git / GitHub / cPanel</span> <span class="number">78%</span></p>
-            <div class="progress"><div class="progress-bar color-3" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" style="width:78%"></div></div>
-          </div>
+
+      <div class="card">
+        <span class="status live"><span class="dotsm"></span>live · e-commerce</span>
+        <h3><a href="https://pusabeej.iari.res.in" target="_blank">Pusa Beej — Seed Booking Portal</a></h3>
+        <div class="tags">
+          <span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">Cashfree</span>
         </div>
+        <p>Government e-commerce platform for online seed booking with real payment processing, user auth, order history and live inventory checks.</p>
+        <div class="metric">Real Cashfree payments · live govt. orders</div>
+        <a class="go" href="https://pusabeej.iari.res.in" target="_blank">Visit live site →</a>
       </div>
+
+      <div class="card">
+        <span class="status live"><span class="dotsm"></span>live · service platform</span>
+        <h3><a href="https://omaacompany.com" target="_blank">OMAA — Appliance Service Booking</a></h3>
+        <div class="tags">
+          <span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">Cashfree</span>
+        </div>
+        <p>Booking platform for AC, fridge, washing machine &amp; water-purifier repair, with location-based technician assignment and a referral &amp; rewards engine.</p>
+        <div class="metric">Multi-level referral logic · live bookings</div>
+        <a class="go" href="https://omaacompany.com" target="_blank">Visit live site →</a>
+      </div>
+
+      <div class="card">
+        <span class="status live"><span class="dotsm"></span>live · govtech</span>
+        <h3><a href="https://iari.res.in/sci_db/search.php" target="_blank">Scientist Information System</a></h3>
+        <div class="tags">
+          <span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">jQuery</span>
+        </div>
+        <p>Scientist profile dashboard covering education, papers, awards &amp; patents, with multi-field search by name, division and specialisation.</p>
+        <a class="go" href="https://iari.res.in/sci_db/search.php" target="_blank">Visit live site →</a>
+      </div>
+
+      <div class="card">
+        <span class="status live"><span class="dotsm"></span>live · govtech</span>
+        <h3><a href="https://iari.res.in/bms/agromet/index.php" target="_blank">Agromet Advisory Portal</a></h3>
+        <div class="tags">
+          <span class="tag">PHP</span><span class="tag">AJAX</span><span class="tag">CKEditor</span>
+        </div>
+        <p>Real-time bilingual (Hindi/English) advisory system with a custom CMS for weather updates and crop research insights for IARI's intranet users.</p>
+        <a class="go" href="https://iari.res.in/bms/agromet/index.php" target="_blank">Visit live site →</a>
+      </div>
+
+      <div class="card">
+        <span class="status code"><span class="dotsm"></span>wordpress / woo</span>
+        <h3>Custom WooCommerce Store</h3>
+        <div class="tags">
+          <span class="tag">WordPress</span><span class="tag">WooCommerce</span><span class="tag">ACF</span>
+        </div>
+        <p>Custom store built from scratch — bespoke theme, product categories, cart and checkout, plus custom PHP hooks and plugin configuration.</p>
+        <a class="go" href="https://github.com/Santosh-apna123" target="_blank">View on GitHub →</a>
+      </div>
+
+    </div>
+
+    <div class="stats-strip">
+      <div class="stat-box"><div class="num"><span>5</span>+</div><div class="lbl">Live projects</div></div>
+      <div class="stat-box"><div class="num"><span>2</span>+</div><div class="lbl">Years experience</div></div>
+      <div class="stat-box"><div class="num"><span>15</span>+</div><div class="lbl">REST APIs built</div></div>
+      <div class="stat-box"><div class="num"><span>8</span>+</div><div class="lbl">Client websites</div></div>
     </div>
   </div>
 </section>
 
-<!-- ===== RESUME ===== -->
-<section class="ftco-section" id="resume-section">
-  <div class="container-fluid px-md-4">
-    <div class="row justify-content-center pb-5">
-      <div class="col-md-10 heading-section text-center ftco-animate">
-        <h1 class="big big-2">Resume</h1>
-        <h2 class="mb-4">Resume</h2>
-        <p>PHP/Laravel developer with proven delivery of live government and e-commerce platforms.</p>
-      </div>
-    </div>
-
-    <div class="row">
-
-      <!-- EXPERIENCE -->
-      <div class="col-md-6">
-        <div class="resume-wrap ftco-animate">
-          <span class="date">Feb 2025 – Present</span>
-          <h2>Web Developer</h2>
-          <span class="position">Microchip Infotech Systems Pvt. Ltd · New Delhi</span>
-          <p class="mt-4">
-            Architected and launched <a href="https://iari.res.in" target="_blank"><strong>iari.res.in</strong></a> (Laravel 10 MVC) — live government platform for ICAR-IARI managing 10+ content modules for 5,000+ monthly visitors.<br><br>
-            <span class="stat-highlight">✓ Built 15+ REST API endpoints</span> powering admin panel CRUD, reducing content update time by ~60%.<br>
-            Built bilingual (Hindi/English) Bootstrap 5 UI with SEO-friendly routing. Full project lifecycle: requirement → DB design → dev → cPanel deployment.
-          </p>
-        </div>
-
-        <div class="resume-wrap ftco-animate">
-          <span class="date">Jan 2024 – Jan 2025</span>
-          <h2>Web Developer</h2>
-          <span class="position">Artek Enterprises Pvt. Ltd · New Delhi</span>
-          <p class="mt-4">
-            Built 8+ client websites using PHP (OOP) and WordPress, delivered on time with zero critical post-launch bugs.<br><br>
-            <span class="stat-highlight">✓ Integrated Cashfree &amp; Razorpay</span> into 2 e-commerce platforms.<br>
-            <span class="stat-highlight">✓ MySQL optimisation</span> reduced average query time by ~35% on high-traffic pages.
-          </p>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-panel">
+      <div>
+        <div class="eyebrow" style="color:#7e9bff;">05_contact</div>
+        <h2>Let's build something that stays live.</h2>
+        <p>Open to mid-level backend roles, freelance Laravel work, and collaborations. I usually reply within 24 hours.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:info.santoskr@gmail.com">Send an email</a>
+          <a class="btn btn-outline" href="https://www.linkedin.com/in/santosh-kumar35648" target="_blank">LinkedIn</a>
+          <a class="btn btn-outline" href="https://github.com/Santosh-apna123" target="_blank">GitHub</a>
         </div>
       </div>
-
-      <!-- EDUCATION -->
-      <div class="col-md-6">
-        <div class="resume-wrap ftco-animate">
-          <span class="date">2019 – 2023</span>
-          <h2>BCA – Bachelor of Computer Application</h2>
-          <span class="position">BRABU, Muzaffarpur · Score: 70.33%</span>
-          <p class="mt-4">Studied core CS fundamentals, web development, databases, and software engineering.</p>
-        </div>
-
-        <div class="resume-wrap ftco-animate">
-          <span class="date">2017 – 2019</span>
-          <h2>Intermediate (12th)</h2>
-          <span class="position">B.S.E.B, Patna · Score: 74.2%</span>
-          <p class="mt-4">Science stream with Mathematics and Computer Science.</p>
-        </div>
-
-        <div class="resume-wrap ftco-animate">
-          <span class="date">2015 – 2017</span>
-          <h2>Matriculation (10th)</h2>
-          <span class="position">B.S.E.B, Patna · Score: 81.4%</span>
-          <p class="mt-4">Strong academic foundation with top marks in Mathematics.</p>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="row justify-content-center mt-5">
-      <div class="col-md-6 text-center ftco-animate">
-        <p><a href="images/Santosh_kumar_resume_Updated.pdf" class="btn btn-primary py-4 px-5" target="_blank">Download Full CV</a></p>
-      </div>
+      <ul class="contact-list">
+        <li><span class="ico">@</span><div><span class="lbl">Email</span><a href="mailto:info.santoskr@gmail.com">info.santoskr@gmail.com</a></div></li>
+        <li><span class="ico">#</span><div><span class="lbl">Phone</span><a href="tel:+919693852800">+91 96938 52800</a></div></li>
+        <li><span class="ico">○</span><div><span class="lbl">Location</span><span>New Delhi, India</span></div></li>
+        <li><span class="ico">↓</span><div><span class="lbl">Resume</span><a href="images/Santosh_kumar_resume_Updated.pdf" target="_blank">Download CV (PDF)</a></div></li>
+      </ul>
     </div>
   </div>
 </section>
 
-<!-- ===== PROJECTS ===== -->
-<section class="ftco-section" id="project-section">
-  <div class="container-fluid px-md-4">
-    <div class="row justify-content-center pb-5">
-      <div class="col-md-12 heading-section text-center ftco-animate">
-        <h1 class="big big-2">Projects</h1>
-        <h2 class="mb-4">Live Projects</h2>
-        <p>Real production projects — all currently live and serving users.</p>
-      </div>
-    </div>
-
-    <div class="row d-flex">
-
-      <!-- Project 1: ICAR-IARI -->
-      <div class="col-md-4 ftco-animate">
-        <div class="project" style="padding: 20px; border: 1px solid #eee; border-radius: 8px; margin-bottom: 20px; height: 100%;">
-          <div class="text pt-3">
-            <span style="display:inline-block;background:#e8f0fe;color:#1a56db;padding:2px 10px;border-radius:4px;font-size:12px;font-weight:600;margin-bottom:8px;">🟢 LIVE · GovTech</span>
-            <h3><a href="https://iari.res.in" target="_blank">ICAR-IARI Official Website</a></h3>
-            <div>
-              <span class="badge-tech">Laravel 10</span>
-              <span class="badge-tech">PHP 8</span>
-              <span class="badge-tech">MySQL</span>
-              <span class="badge-tech">Bootstrap 5</span>
-              <span class="badge-tech">jQuery</span>
-              <span class="badge-tech">Ajax</span>
-            </div>
-            <p class="mt-2">National web platform for India's premier agricultural research institute. Built as sole developer — handles News, Tenders, Jobs, Training &amp; Auction modules.</p>
-            <p><span class="stat-highlight">✓ 5,000+ monthly visitors &nbsp;·&nbsp; 500+ notices managed &nbsp;·&nbsp; 99%+ uptime</span></p>
-            <a href="https://iari.res.in" class="project-link-btn" target="_blank">🔗 Visit Live Site</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 2: Pusa Beej -->
-      <div class="col-md-4 ftco-animate">
-        <div class="project" style="padding: 20px; border: 1px solid #eee; border-radius: 8px; margin-bottom: 20px; height: 100%;">
-          <div class="text pt-3">
-            <span style="display:inline-block;background:#e8f0fe;color:#1a56db;padding:2px 10px;border-radius:4px;font-size:12px;font-weight:600;margin-bottom:8px;">🟢 LIVE · E-commerce</span>
-            <h3><a href="https://pusabeej.iari.res.in" target="_blank">Pusa Beej – Seed Booking Portal</a></h3>
-            <div>
-              <span class="badge-tech">PHP</span>
-              <span class="badge-tech">MySQL</span>
-              <span class="badge-tech">Bootstrap</span>
-              <span class="badge-tech">Cashfree</span>
-              <span class="badge-tech">jQuery</span>
-            </div>
-            <p class="mt-2">Government e-commerce platform for online seed booking with real payment processing. Built user auth, order history, inventory management, and real-time availability checks.</p>
-            <p><span class="stat-highlight">✓ Real Cashfree payment integration &nbsp;·&nbsp; Government seed orders live</span></p>
-            <a href="https://pusabeej.iari.res.in" class="project-link-btn" target="_blank">🔗 Visit Live Site</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 3: OMAA -->
-      <div class="col-md-4 ftco-animate">
-        <div class="project" style="padding: 20px; border: 1px solid #eee; border-radius: 8px; margin-bottom: 20px; height: 100%;">
-          <div class="text pt-3">
-            <span style="display:inline-block;background:#e8f0fe;color:#1a56db;padding:2px 10px;border-radius:4px;font-size:12px;font-weight:600;margin-bottom:8px;">🟢 LIVE · Service Platform</span>
-            <h3><a href="https://omaacompany.com" target="_blank">OMAA – Home Appliance Service Booking</a></h3>
-            <div>
-              <span class="badge-tech">PHP</span>
-              <span class="badge-tech">MySQL</span>
-              <span class="badge-tech">Bootstrap</span>
-              <span class="badge-tech">Cashfree</span>
-              <span class="badge-tech">jQuery</span>
-            </div>
-            <p class="mt-2">Full-stack booking platform for AC, Refrigerator, Washing Machine &amp; Water Purifier repair. Location-based technician assignment and multi-level referral &amp; reward system.</p>
-            <p><span class="stat-highlight">✓ Multi-level referral system &nbsp;·&nbsp; Location-based assignment logic</span></p>
-            <a href="https://omaacompany.com" class="project-link-btn" target="_blank">🔗 Visit Live Site</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 4: Scientist DB -->
-      <div class="col-md-4 ftco-animate">
-        <div class="project" style="padding: 20px; border: 1px solid #eee; border-radius: 8px; margin-bottom: 20px; height: 100%;">
-          <div class="text pt-3">
-            <span style="display:inline-block;background:#e8f0fe;color:#1a56db;padding:2px 10px;border-radius:4px;font-size:12px;font-weight:600;margin-bottom:8px;">🟢 LIVE · GovTech</span>
-            <h3><a href="https://iari.res.in/sci_db/search.php" target="_blank">IARI Scientist Information Management System</a></h3>
-            <div>
-              <span class="badge-tech">PHP</span>
-              <span class="badge-tech">MySQL</span>
-              <span class="badge-tech">Bootstrap</span>
-              <span class="badge-tech">jQuery</span>
-            </div>
-            <p class="mt-2">Scientist profile dashboard covering education, research papers, awards &amp; patents. Advanced multi-field search by name, division, and specialization.</p>
-            <a href="https://iari.res.in/sci_db/search.php" class="project-link-btn" target="_blank">🔗 Visit Live Site</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 5: Agromet -->
-      <div class="col-md-4 ftco-animate">
-        <div class="project" style="padding: 20px; border: 1px solid #eee; border-radius: 8px; margin-bottom: 20px; height: 100%;">
-          <div class="text pt-3">
-            <span style="display:inline-block;background:#e8f0fe;color:#1a56db;padding:2px 10px;border-radius:4px;font-size:12px;font-weight:600;margin-bottom:8px;">🟢 LIVE · GovTech</span>
-            <h3><a href="https://iari.res.in/bms/agromet/index.php" target="_blank">Agromet Advisory Portal</a></h3>
-            <div>
-              <span class="badge-tech">PHP</span>
-              <span class="badge-tech">MySQL</span>
-              <span class="badge-tech">AJAX</span>
-              <span class="badge-tech">CKEditor</span>
-              <span class="badge-tech">Bootstrap</span>
-            </div>
-            <p class="mt-2">Real-time bilingual (Hindi/English) agromet advisory system with custom CMS for weather updates and crop research insights. Serves IARI intranet users.</p>
-            <a href="https://iari.res.in/bms/agromet/index.php" class="project-link-btn" target="_blank">🔗 Visit Live Site</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 6: WooCommerce -->
-      <div class="col-md-4 ftco-animate">
-        <div class="project" style="padding: 20px; border: 1px solid #eee; border-radius: 8px; margin-bottom: 20px; height: 100%;">
-          <div class="text pt-3">
-            <span style="display:inline-block;background:#fff3cd;color:#856404;padding:2px 10px;border-radius:4px;font-size:12px;font-weight:600;margin-bottom:8px;">💻 WordPress / WooCommerce</span>
-            <h3>Custom WooCommerce E-Commerce Store</h3>
-            <div>
-              <span class="badge-tech">WordPress</span>
-              <span class="badge-tech">WooCommerce</span>
-              <span class="badge-tech">Custom Theme</span>
-              <span class="badge-tech">ACF</span>
-              <span class="badge-tech">PHP Hooks</span>
-            </div>
-            <p class="mt-2">Custom WooCommerce store from scratch — custom theme development, product categories, cart, checkout, order management. Custom hooks (add_action, add_filter) and plugin configuration.</p>
-            <a href="https://github.com/Santosh-apna123" class="project-link-btn" target="_blank">💻 GitHub</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Stats bar -->
-    <div class="row ftco-animate mt-3 mb-5">
-      <div class="col-md-3 text-center">
-        <div class="ftco-counter">
-          <span class="number" data-number="5">0</span><span>+</span>
-          <p>Live Projects</p>
-        </div>
-      </div>
-      <div class="col-md-3 text-center">
-        <div class="ftco-counter">
-          <span class="number" data-number="2">0</span><span>+</span>
-          <p>Years Experience</p>
-        </div>
-      </div>
-      <div class="col-md-3 text-center">
-        <div class="ftco-counter">
-          <span class="number" data-number="15">0</span><span>+</span>
-          <p>REST APIs Built</p>
-        </div>
-      </div>
-      <div class="col-md-3 text-center">
-        <div class="ftco-counter">
-          <span class="number" data-number="8">0</span><span>+</span>
-          <p>Client Websites</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="row justify-content-center">
-      <div class="col-md-6 text-center ftco-animate">
-        <p><a href="https://github.com/Santosh-apna123" class="btn btn-primary py-4 px-5" target="_blank">Explore GitHub</a></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== CONTACT ===== -->
-<section class="ftco-section ftco-no-pb" id="contact-section">
-  <div class="container-fluid px-md-4">
-    <div class="row justify-content-center pb-5">
-      <div class="col-md-10 heading-section text-center ftco-animate">
-        <h1 class="big big-2">Contact</h1>
-        <h2 class="mb-4">Get in Touch</h2>
-        <p>Open to mid-level backend roles, freelance projects, and collaborations.</p>
-      </div>
-    </div>
-    <div class="row d-flex">
-      <div class="col-md-4">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="border p-4 mb-4 ftco-animate">
-              <p><span class="ftco-icon"><i class="fa fa-map-marker"></i></span>New Delhi, India</p>
-            </div>
-          </div>
-          <div class="col-md-12">
-            <div class="border p-4 mb-4 ftco-animate">
-              <p><span class="ftco-icon"><i class="fa fa-phone"></i></span><a href="tel:+919693852800">+91 9693852800</a></p>
-            </div>
-          </div>
-          <div class="col-md-12">
-            <div class="border p-4 mb-4 ftco-animate">
-              <p><span class="ftco-icon"><i class="fa fa-paper-plane"></i></span><a href="mailto:info.santoskr@gmail.com">info.santoskr@gmail.com</a></p>
-            </div>
-          </div>
-          <div class="col-md-12">
-            <div class="border p-4 mb-4 ftco-animate">
-              <p><span class="ftco-icon"><i class="fa fa-download"></i></span><a href="images/Santosh_kumar_resume_Updated.pdf" target="_blank">Download CV</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-8 ftco-animate">
-        <div class="border p-5">
-          <p>Reach out via email or connect on LinkedIn. I typically respond within 24 hours.</p>
-          <a href="mailto:info.santoskr@gmail.com" class="btn btn-primary py-3 px-5 mb-3">Send Email</a>&nbsp;&nbsp;
-          <a href="https://www.linkedin.com/in/santosh-kumar35648" class="btn btn-white py-3 px-5 mb-3" target="_blank">LinkedIn Profile</a>&nbsp;&nbsp;
-          <a href="https://github.com/Santosh-apna123" class="btn btn-white py-3 px-5 mb-3" target="_blank">GitHub Profile</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="ftco-footer ftco-section">
-  <div class="container-fluid px-md-4">
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <p>© <script>document.write(new Date().getFullYear())</script> Santosh Kumar · PHP Laravel Developer · New Delhi, India</p>
-        <ul class="ftco-footer-social list-unstyled d-flex justify-content-center mb-0">
-          <li class="ftco-animate"><a href="https://www.linkedin.com/in/santosh-kumar35648" target="_blank"><span class="fa fa-linkedin"></span></a></li>
-          <li class="ftco-animate"><a href="https://github.com/Santosh-apna123" target="_blank"><span class="fa fa-github"></span></a></li>
-          <li class="ftco-animate"><a href="mailto:info.santoskr@gmail.com"><span class="fa fa-envelope"></span></a></li>
-        </ul>
-      </div>
+<footer>
+  <div class="wrap">
+    <p>© <span id="yr"></span> Santosh Kumar · PHP / Laravel Developer · New Delhi, India</p>
+    <div class="soc">
+      <a href="https://www.linkedin.com/in/santosh-kumar35648" target="_blank">linkedin</a>
+      <a href="https://github.com/Santosh-apna123" target="_blank">github</a>
+      <a href="mailto:info.santoskr@gmail.com">email</a>
     </div>
   </div>
 </footer>
 
-</div><!-- END container-wrap -->
-</div><!-- END colorlib-page -->
-
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery-migrate-3.0.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.easing.1.3.js"></script>
-<script src="js/jquery.waypoints.min.js"></script>
-<script src="js/jquery.stellar.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/aos.js"></script>
-<script src="js/jquery.animateNumber.min.js"></script>
-<script src="js/scrollax.min.js"></script>
-<script src="js/main.js"></script>
-
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
 </body>
 </html>
